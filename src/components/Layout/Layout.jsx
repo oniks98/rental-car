@@ -7,9 +7,11 @@ export const Layout = () => {
   return (
     <div className={css.container}>
       <Header />
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
+      <main className={css.main}>
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
+      </main>
     </div>
   );
 };

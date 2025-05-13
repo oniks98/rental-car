@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import css from "./Navigation.module.css";
 
 export const Navigation = () => {
@@ -7,18 +7,24 @@ export const Navigation = () => {
     isActive ? `${css.link} ${css.active}` : css.link;
 
   return (
-    <Box>
-      <Typography variant="h6">
-        <NavLink className={getNavLinkClass} to="/">
-          Home
-        </NavLink>
-      </Typography>
+    <div className={css.nav}>
+      <NavLink className={getNavLinkClass} to="/">
+        Home
+      </NavLink>
 
-      <Typography variant="h6">
-        <NavLink className={getNavLinkClass} to="/contacts">
-          Catalog
-        </NavLink>
-      </Typography>
-    </Box>
+      <NavLink className={getNavLinkClass} to="/catalog">
+        Catalog
+      </NavLink>
+
+      <NavLink className={getNavLinkClass} to="/favorites">
+        {({ isActive }) =>
+          isActive ? (
+            <FaHeart className={`${css.icon} ${css.activeIcon}`} />
+          ) : (
+            <FaRegHeart className={css.icon} />
+          )
+        }
+      </NavLink>
+    </div>
   );
 };

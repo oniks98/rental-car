@@ -1,0 +1,14 @@
+.container {
+  background-color: #f2f4f7;
+  border-bottom: 1px solid #f2f4f7;
+}
+
+.header {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
