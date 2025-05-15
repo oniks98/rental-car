@@ -1,0 +1,14 @@
+/* CarsList.module.css */
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(276px, 1fr));
+  column-gap: 32px; /* горизонтальний геп */
+  row-gap: 48px; /* вертикальний геп */
+  margin-bottom: 80px;
+}
+
+@media (min-width: 1200px) {
+  .list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

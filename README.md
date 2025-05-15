@@ -74,4 +74,4 @@ The project is deployed using [Vercel](https://vercel.com) .
 
 ## 👤 Author
 
-Developed by \[Shpuryk Yurii] – feel free to replace this with your actual name and contact info.
+Developed by Shpuryk Yurii – feel free to replace this with your actual name and contact info.

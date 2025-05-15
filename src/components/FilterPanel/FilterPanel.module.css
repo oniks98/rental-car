@@ -1,0 +1,130 @@
+.panel {
+  max-width: 1200px;
+  padding: 84px 138px 56px;
+}
+
+.selects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.selectGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 400;
+  line-height: 1.33333;
+  font-size: 12px;
+  color: #8d929a;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 1px;
+}
+
+.mileageInput {
+  border-radius: 12px;
+  padding: 12px 16px;
+  width: 110px;
+  height: 44px;
+  background: #f7f7f7;
+  font-size: 16px;
+  color: #101828;
+  border: none;
+  outline: none;
+}
+
+.searchBtn,
+.resetBtn {
+  border-radius: 12px;
+  padding: 12px;
+  width: 120px;
+  height: 44px;
+  background: #3470ff;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.searchBtn:hover,
+.resetBtn:hover {
+  background-color: #0b44cd;
+}
+
+.dropdownWrapper {
+  position: relative;
+  width: 196px;
+}
+
+.selectBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  background: #f7f7f7;
+  border-radius: 12px;
+  padding: 12px 16px 12px 16px;
+  width: 100%;
+  height: 44px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+
+.dropdownWrapper::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  border: solid #101828;
+  border-width: 0 2px 2px 0;
+  padding: 4px;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.open::after {
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+.options {
+  position: absolute;
+  background: #fff;
+  border-radius: 8px;
+  padding: 14px;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 100;
+  list-style: none;
+  outline: none;
+}
+
+.dropdownItem {
+  color: #8d929a;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.dropdownItem:hover,
+.dropdownItemActive {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #101828;
+}
+
+.mileageInput::placeholder {
+  color: #101828;
+}

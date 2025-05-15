@@ -1,6 +1,13 @@
 .container {
   background-color: #f2f4f7;
   border-bottom: 1px solid #f2f4f7;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  z-index: 1;
+  width: 100vw;
 }
 
 .header {
@@ -11,4 +18,5 @@
   padding-bottom: 24px;
   justify-content: space-between;
   flex-wrap: wrap;
+  /* position: fixed; */
 }

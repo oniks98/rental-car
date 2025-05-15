@@ -1,0 +1,118 @@
+/* CarCard.module.css */
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 268px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+.placeholder {
+  width: 100%;
+  height: 268px;
+  background-color: #f0f0f0;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8d929a;
+  font-size: 14px;
+}
+
+.favBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.details {
+  flex-grow: 1;
+  padding: 0 4px 0 4px;
+  margin-bottom: 28px;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+
+.model {
+  color: #3470ff;
+}
+
+.price {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+
+.meta,
+.rental {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #8d929a;
+  margin-bottom: 4px;
+}
+
+.btn {
+  border-radius: 12px;
+  padding: 12px;
+  width: 100%;
+  background: #3470ff;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #0b44cd;
+}
+
+.link {
+  display: block;
+  width: 100%;
+  padding: 0 4px 0 4px;
+}
+
+.activeIcon {
+  color: #3470ff;
+}

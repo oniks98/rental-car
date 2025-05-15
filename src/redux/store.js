@@ -14,17 +14,19 @@ import storage from "redux-persist/lib/storage";
 import { CarsListReducer } from "./carsList/slice";
 import { FavoritesReducer } from "./favorites/slice";
 import { CarDetailsReducer } from "./CarDetails/slice";
+import { brandsReducer } from "./carsBrands/slice"; // додано
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["favorites"], // только favorites будет сохранён
+  whitelist: ["favorites"], // тільки favorites буде збережено
 };
 
 const rootReducer = combineReducers({
   carsList: CarsListReducer,
   favorites: FavoritesReducer,
   carDetails: CarDetailsReducer,
+  brands: brandsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

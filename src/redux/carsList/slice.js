@@ -1,3 +1,4 @@
+// slice.js
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { getCarsList } from "./operations";
 
@@ -21,7 +22,11 @@ const carsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getCarsList.fulfilled, (state, { payload }) => {
-        state.cars = payload.cars;
+        if (state.currentPage === 1) {
+          state.cars = payload.cars;
+        } else {
+          state.cars = [...state.cars, ...payload.cars];
+        }
         state.totalCars = payload.totalCars;
         state.totalPages = payload.totalPages;
       })

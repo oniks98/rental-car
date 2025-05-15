@@ -2,11 +2,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { carsApi } from "../../api/carsApi";
 
-export const getCarDetails = createAsyncThunk(
-  "carDetails/getCarDetails",
-  async (id, thunkApi) => {
+export const getBrandsList = createAsyncThunk(
+  "brands/getBrandsList",
+  async (_, thunkApi) => {
     try {
-      const { data } = await carsApi.get(`/cars/${id}`);
+      const { data } = await carsApi.get("/brands");
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

@@ -1,3 +1,4 @@
+// selectors.js;
 export const selectCars = (state) => state.carsList.cars;
 export const selectIsLoading = (state) => state.carsList.isLoading;
 export const selectError = (state) => state.carsList.error;
