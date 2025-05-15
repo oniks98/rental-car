@@ -128,3 +128,10 @@
 .mileageInput::placeholder {
   color: #101828;
 }
+
+.searchBtn:disabled,
+.resetBtn:disabled {
+  background-color: #f7f7f7; /* серый цвет */
+  cursor: not-allowed;
+  color: #101828;
+}

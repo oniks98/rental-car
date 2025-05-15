@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { lazy } from "react";
 import ScrollToTopButton from "../../src/components/ScrollToTopButton/ScrollToTopButton.jsx";
+import "react-datepicker/dist/react-datepicker.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import Layout from "../components/Layout/Layout";
 

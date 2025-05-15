@@ -43,7 +43,7 @@ const FilterPanel = ({ onSearch }) => {
     onSearch({});
   };
 
-  const isSearchDisabled = useMemo(
+  const isDisabled = useMemo(
     () =>
       !selectedBrand &&
       !selectedPrice &&
@@ -141,11 +141,15 @@ const FilterPanel = ({ onSearch }) => {
         <button
           className={css.searchBtn}
           onClick={handleSearchClick}
-          disabled={isSearchDisabled}
+          disabled={isDisabled}
         >
           Search
         </button>
-        <button className={css.resetBtn} onClick={handleReset}>
+        <button
+          className={css.resetBtn}
+          onClick={handleReset}
+          disabled={isDisabled}
+        >
           Reset
         </button>
       </div>

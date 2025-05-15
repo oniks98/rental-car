@@ -1,0 +1,49 @@
+.form {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.field {
+  border-radius: 12px;
+  padding: 14px 20px;
+  width: 576px;
+  height: 48px;
+  background: #f7f7f7;
+  outline: none;
+  border: none;
+}
+
+.field::placeholder {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+}
+
+.commentField {
+  height: 88px;
+}
+
+.submitbtn {
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  padding: 12px 51px;
+  width: 156px;
+  height: 44px;
+  background: #3470ff;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submitbtn:hover {
+  background-color: #0b44cd;
+}
+
+.field[placeholder="Booking date"] {
+  cursor: pointer;
+}
