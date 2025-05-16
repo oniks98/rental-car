@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import { lazy } from "react";
 import ScrollToTopButton from "../../src/components/ScrollToTopButton/ScrollToTopButton.jsx";
-import "react-datepicker/dist/react-datepicker.css";
-import "react-toastify/dist/ReactToastify.css";
 
 import Layout from "../components/Layout/Layout";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Ленивая загрузка страниц
 const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
@@ -33,6 +33,7 @@ const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+      <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
       <ScrollToTopButton />
     </>
   );

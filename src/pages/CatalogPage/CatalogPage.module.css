@@ -1,7 +1,9 @@
 /* CatalogPage.module.css */
 .wrapper {
-  max-width: 1200px;
+  max-width: 1248px;
   margin: 70px auto;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 .error {
   color: #f43f5e;
@@ -37,4 +39,12 @@
   padding: 12px 50px;
   width: 182px;
   height: 44px;
+}
+
+.emptyMessage {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  text-align: center;
 }

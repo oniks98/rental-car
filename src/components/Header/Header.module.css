@@ -12,11 +12,12 @@
 
 .header {
   display: flex;
-  max-width: 1200px;
+  max-width: 1248px;
   margin: 0 auto;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  /* padding-top: 24px;
+  padding-bottom: 24px; */
   justify-content: space-between;
   flex-wrap: wrap;
   /* position: fixed; */
+  padding: 24px;
 }

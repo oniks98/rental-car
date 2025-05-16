@@ -1,7 +1,6 @@
 .wrapper {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  max-width: 1200px;
+  padding: 24px;
+  max-width: 1248px;
   margin: 70px auto;
 }
 
@@ -15,6 +14,7 @@
 .title {
   font-size: 18px;
   font-weight: bold;
+  color: #101828;
 }
 
 .resetBtn {

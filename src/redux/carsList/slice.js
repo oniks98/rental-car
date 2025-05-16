@@ -1,8 +1,4 @@
 // slice.js
-//
-
-// slice.js
-// slice.js
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { getCarsList } from "./operations";
 

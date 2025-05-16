@@ -1,30 +1,49 @@
-// import React from "react";
-
-// const FavoritesPage = () => {
-//   return <div>FavoritesPage</div>;
-// };
-
-// export default FavoritesPage;
-
-// FavoritesPage.jsx;
 import { useSelector, useDispatch } from "react-redux";
-import { selectFavorites } from "../../redux/favorites/selectors.js"; // путь к favorites/selectors.js
-import { selectCars } from "../../redux/carsList/selectors"; // список всех машин
-import { clearFavorites } from "../../redux/favorites/slice.js"; // путь к favorites/slice.js
+import { useEffect, useState } from "react";
+import { selectFavorites } from "../../redux/favorites/selectors";
+import { clearFavorites } from "../../redux/favorites/slice";
+import { getCarDetails } from "../../redux/carDetails/operations"; // ✅ путь правильный
 
 import CarsList from "../../components/CarsList/CarsList";
+import Loader from "../../components/Loader/Loader";
+import { toast } from "react-toastify"; // ✅ ToastContainer не нужен здесь
+
 import css from "./FavoritesPage.module.css";
 
 const FavoritesPage = () => {
   const dispatch = useDispatch();
   const favoriteIds = useSelector(selectFavorites);
-  const allCars = useSelector(selectCars);
-
-  const favoriteCars = allCars.filter((car) => favoriteIds.includes(car.id));
+  const [favoriteCars, setFavoriteCars] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleReset = () => {
     dispatch(clearFavorites());
+    setFavoriteCars([]);
   };
+
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      setIsLoading(true);
+      try {
+        const results = await Promise.all(
+          favoriteIds.map((id) => dispatch(getCarDetails(id)).unwrap())
+        );
+        setFavoriteCars(results);
+      } catch (error) {
+        toast.error(`Error loading favorite machines: ${error.message}`);
+        setFavoriteCars([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (favoriteIds.length > 0) {
+      fetchFavorites();
+    } else {
+      setFavoriteCars([]);
+      setIsLoading(false);
+    }
+  }, [favoriteIds, dispatch]);
 
   return (
     <div className={css.wrapper}>
@@ -35,7 +54,9 @@ const FavoritesPage = () => {
         </button>
       </div>
 
-      {favoriteCars.length === 0 ? (
+      {isLoading ? (
+        <Loader />
+      ) : favoriteCars.length === 0 ? (
         <p className={css.empty}>No favorites yet.</p>
       ) : (
         <CarsList cars={favoriteCars} />

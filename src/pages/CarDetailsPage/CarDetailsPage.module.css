@@ -2,9 +2,8 @@
   display: flex;
   flex-direction: row;
   gap: 72px;
-  padding-top: 84px;
-  padding-bottom: 84px;
-  max-width: 1200px;
+  padding: 84px 24px;
+  max-width: 1248px;
   margin: 70px auto;
 }
 
@@ -19,6 +18,7 @@
   display: flex;
   gap: 40px;
   flex-direction: column;
+  flex: 1 1 auto;
 }
 
 .section {
@@ -43,88 +43,85 @@ h2 {
   color: #8d929a;
   margin-bottom: 24px;
 }
-/*
+
 .details {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  flex: 1 1 auto;
+  max-width: 488px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+.data {
+  margin-bottom: 68px;
+}
+.name {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #101828;
+}
+.id {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
 }
 
 .infoBox {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  background: #f5f5f5;
-  padding: 1rem;
-  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
 }
 
-.section {
-  background-color: #fafafa;
-  padding: 1rem;
-  border-radius: 8px;
+.icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  color: #101828;
 }
 
-.section h3 {
-  margin-bottom: 0.5rem;
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #3470ff;
+  margin-bottom: 32px;
 }
-
-.section ul {
-  list-style: none;
-  padding-left: 1rem;
-}
-
-.section ul li::before {
-  content: "•";
-  color: #333;
-  margin-right: 0.5rem;
-}
-
-.form {
-  display: grid;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.form label {
+.detailsBox {
   display: flex;
   flex-direction: column;
-  font-weight: 500;
+  gap: 90px;
 }
 
-.form input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+.infoTech {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.form button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 0.75rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  margin-bottom: 20px;
 }
 
-.form button:hover {
-  background-color: #0056b3;
-} */
+li:not(:last-child) {
+  margin-bottom: 16px;
+}
 
-/* @media (max-width: 768px) {
-  .container {
-    grid-template-columns: 1fr 2fr;
-  }
-
-  .image {
-    max-height: 100%;
-    object-fit: cover;
-  }
-} */
+li {
+  display: flex;
+  align-items: center;
+}
