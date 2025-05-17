@@ -57,6 +57,8 @@ const CarCard = ({ car }) => {
             src={src}
             alt={`${car.brand} ${car.model}`}
             className={css.image}
+            loading="lazy"
+            decoding="async"
           />
         ) : (
           <div className={css.placeholder}>No image</div>
