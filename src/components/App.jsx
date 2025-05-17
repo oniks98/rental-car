@@ -6,7 +6,6 @@ import Layout from "../components/Layout/Layout";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// Ленивая загрузка страниц
 const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
 const CatalogPage = lazy(() => import("../pages/CatalogPage/CatalogPage.jsx"));
 const CarDetailsPage = lazy(() =>
@@ -22,6 +21,7 @@ const NotFoundPage = lazy(() =>
 const App = () => {
   return (
     <>
+      <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -33,7 +33,7 @@ const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-      <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
+
       <ScrollToTopButton />
     </>
   );

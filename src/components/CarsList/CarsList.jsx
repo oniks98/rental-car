@@ -1,5 +1,3 @@
-// CarsList.jsx;
-
 import CarCard from "../CarCard/CarCard";
 import { motion } from "framer-motion";
 import css from "./CarsList.module.css";
@@ -11,7 +9,7 @@ const containerVariants = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15, // затримка між появами карток
+      staggerChildren: 0.15,
     },
   },
 };

@@ -35,7 +35,7 @@
   height: 44px;
   background: #f7f7f7;
   font-size: 16px;
-  color: #101828;
+  color: var(--black);
   border: none;
   outline: none;
 }
@@ -46,9 +46,9 @@
   padding: 12px;
   width: 120px;
   height: 44px;
-  background: #3470ff;
+  background: var(--background-blue);
   font-size: 16px;
-  color: #fff;
+  color: var(--white);
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -56,7 +56,7 @@
 
 .searchBtn:hover,
 .resetBtn:hover {
-  background-color: #0b44cd;
+  background-color: var(--hover-color);
 }
 
 .dropdownWrapper {
@@ -80,7 +80,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
-  color: #101828;
+  color: var(--black);
 }
 
 .dropdownWrapper::after {
@@ -89,7 +89,7 @@
   right: 16px;
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
-  border: solid #101828;
+  border: solid var(--black);
   border-width: 0 2px 2px 0;
   padding: 4px;
   pointer-events: none;
@@ -102,7 +102,7 @@
 
 .options {
   position: absolute;
-  background: #fff;
+  background: var(--white);
   border-radius: 8px;
   padding: 14px;
   width: 100%;
@@ -122,16 +122,27 @@
 .dropdownItem:hover,
 .dropdownItemActive {
   background-color: rgba(255, 255, 255, 0.15);
-  color: #101828;
+  color: var(--black);
 }
 
 .mileageInput::placeholder {
-  color: #101828;
+  color: var(--black);
 }
 
 .searchBtn:disabled,
 .resetBtn:disabled {
-  background-color: #f7f7f7; /* серый цвет */
+  background-color: #f7f7f7;
   cursor: not-allowed;
-  color: #101828;
+  color: var(--black);
+}
+
+.options::-webkit-scrollbar {
+  width: 8px;
+}
+
+.options::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
 }

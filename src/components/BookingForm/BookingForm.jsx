@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 import { bookingFormSchema } from "../../validations/bookingFormSchema";
 import css from "./BookingForm.module.css";
@@ -12,7 +12,6 @@ const BookingForm = () => {
 
   return (
     <>
-      <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
       <Formik
         initialValues={{
           name: "",
@@ -28,7 +27,6 @@ const BookingForm = () => {
       >
         {({ values, setFieldValue }) => (
           <Form className={css.form}>
-            {/* Name */}
             <label>
               <Field
                 name="name"
@@ -39,7 +37,6 @@ const BookingForm = () => {
               <ErrorMessage name="name" component="div" className={css.error} />
             </label>
 
-            {/* Email */}
             <label>
               <Field
                 name="email"
@@ -54,7 +51,6 @@ const BookingForm = () => {
               />
             </label>
 
-            {/* Date */}
             <label>
               <DatePicker
                 selected={values.date}
@@ -71,15 +67,16 @@ const BookingForm = () => {
                 shouldCloseOnSelect={true}
                 minDate={new Date()}
                 placeholderText="Booking date"
-                className={css.field}
                 dateFormat="dd.MM.yyyy"
                 popperPlacement="bottom-start"
                 ref={dateInputRef}
+                wrapperClassName={css.datepickerWrapper}
+                className={css.dateInput}
               />
+
               <ErrorMessage name="date" component="div" className={css.error} />
             </label>
 
-            {/* Comment */}
             <label>
               <Field
                 name="comment"

@@ -3,13 +3,32 @@
   flex-direction: column;
   margin: 80px auto 10px;
   gap: 10px;
-  width: 280px;
+  width: 268px;
 }
 
 .message {
   text-align: center;
-  border-radius: 8px;
-  padding: 10px;
-  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 12px;
+  color: #0d0d0e;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.messageGo {
+  border-radius: 12px;
+  text-align: center;
+  padding: 12px;
+  width: 268px;
+  height: 44px;
+  background-color: var(--background-blue);
+  font-size: 16px;
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.messageGo:hover {
+  background-color: var(--hover-color);
 }

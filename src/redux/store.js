@@ -13,13 +13,13 @@ import storage from "redux-persist/lib/storage";
 
 import { CarsListReducer } from "./carsList/slice";
 import { FavoritesReducer } from "./favorites/slice";
-import { CarDetailsReducer } from "./CarDetails/slice";
-import { brandsReducer } from "./carsBrands/slice"; // додано
+import { CarDetailsReducer } from "./carDetails/slice";
+import { brandsReducer } from "./carsBrands/slice";
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["favorites"], // тільки favorites буде збережено
+  whitelist: ["favorites"],
 };
 
 const rootReducer = combineReducers({

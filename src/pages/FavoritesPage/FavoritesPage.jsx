@@ -2,11 +2,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { selectFavorites } from "../../redux/favorites/selectors";
 import { clearFavorites } from "../../redux/favorites/slice";
-import { getCarDetails } from "../../redux/carDetails/operations"; // ✅ путь правильный
+import { getCarDetails } from "../../redux/carDetails/operations";
 
 import CarsList from "../../components/CarsList/CarsList";
 import Loader from "../../components/Loader/Loader";
-import { toast } from "react-toastify"; // ✅ ToastContainer не нужен здесь
+import { toast } from "react-toastify";
 
 import css from "./FavoritesPage.module.css";
 

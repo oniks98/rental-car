@@ -1,4 +1,3 @@
-// slice.js
 import { createSlice } from "@reduxjs/toolkit";
 import { getBrandsList } from "./operations";
 

@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Listbox,
   ListboxButton,
@@ -18,8 +18,6 @@ const FilterPanel = ({ onSearch }) => {
   const [selectedPrice, setSelectedPrice] = useState(null);
   const [mileageFrom, setMileageFrom] = useState("");
   const [mileageTo, setMileageTo] = useState("");
-
-  const prices = [30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
 
   useEffect(() => {
     dispatch(getBrandsList());
@@ -43,22 +41,18 @@ const FilterPanel = ({ onSearch }) => {
     onSearch({});
   };
 
-  const isDisabled = useMemo(
-    () =>
-      !selectedBrand &&
-      !selectedPrice &&
-      !mileageFrom.trim() &&
-      !mileageTo.trim(),
-    [selectedBrand, selectedPrice, mileageFrom, mileageTo]
-  );
+  const isDisabled =
+    !selectedBrand &&
+    !selectedPrice &&
+    !mileageFrom.trim() &&
+    !mileageTo.trim();
 
-  const uniqueBrands = useMemo(() => Array.from(new Set(brands)), [brands]);
-  const uniquePrices = useMemo(() => prices.sort((a, b) => a - b), []);
+  const uniqueBrands = Array.from(new Set(brands));
+  const uniquePrices = [30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
 
   return (
     <div className={css.panel}>
       <div className={css.selects}>
-        {/* Brand */}
         <div className={css.selectGroup}>
           <label className={css.label}>Car brand</label>
           <Listbox value={selectedBrand} onChange={setSelectedBrand}>
@@ -87,7 +81,6 @@ const FilterPanel = ({ onSearch }) => {
           </Listbox>
         </div>
 
-        {/* Price */}
         <div className={css.selectGroup}>
           <label className={css.label}>Price / 1 hour</label>
           <Listbox value={selectedPrice} onChange={setSelectedPrice}>
@@ -116,7 +109,6 @@ const FilterPanel = ({ onSearch }) => {
           </Listbox>
         </div>
 
-        {/* Mileage */}
         <div className={css.selectGroup}>
           <label className={css.label}>Car mileage / km</label>
           <div className={css.inputGroup}>
@@ -137,7 +129,6 @@ const FilterPanel = ({ onSearch }) => {
           </div>
         </div>
 
-        {/* Buttons */}
         <button
           className={css.searchBtn}
           onClick={handleSearchClick}

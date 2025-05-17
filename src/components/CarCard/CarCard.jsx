@@ -1,5 +1,4 @@
 // CarCard.jsx
-
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
@@ -13,7 +12,7 @@ import { isCarFavorite } from "../../redux/favorites/selectors.js";
 
 import css from "./CarCard.module.css";
 
-const MotionDiv = motion.div; // Окремий компонент для ESLint
+const MotionDiv = motion.div;
 
 const CarCard = ({ car }) => {
   const dispatch = useDispatch();

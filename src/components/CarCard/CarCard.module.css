@@ -1,8 +1,7 @@
-/* CarCard.module.css */
 .card {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -45,7 +44,7 @@
   background: transparent;
   border: none;
   font-size: 20px;
-  color: #fff;
+  color: var(--white);
   cursor: pointer;
 }
 
@@ -65,18 +64,18 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
-  color: #101828;
+  color: var(--black);
 }
 
 .model {
-  color: #3470ff;
+  color: var(--background-blue);
 }
 
 .price {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
-  color: #101828;
+  color: var(--black);
 }
 
 .meta,
@@ -92,19 +91,19 @@
   border-radius: 12px;
   padding: 12px;
   width: 100%;
-  background: #3470ff;
+  background: var(--background-blue);
   cursor: pointer;
   border: none;
   transition: background-color 0.3s;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.25;
-  color: #fff;
+  color: var(--white);
 }
 
 .btn:hover,
 .btn:focus {
-  background-color: #0b44cd;
+  background-color: var(--hover-color);
 }
 
 .link {
@@ -114,5 +113,5 @@
 }
 
 .activeIcon {
-  color: #3470ff;
+  color: var(--background-blue);
 }

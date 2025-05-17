@@ -9,7 +9,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
-  color: #101828;
+  color: var(--black);
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -18,16 +18,16 @@
 
 .link:hover,
 .link:focus {
-  color: #0b44cd;
+  color: var(--hover-color);
 }
 
 .active {
-  color: #0b44cd;
+  color: var(--hover-color);
 }
 
 .icon {
   font-size: 16px;
-  color: #101828;
+  color: var(--black);
   transition: color 0.3s;
   cursor: pointer;
   display: flex;
@@ -36,9 +36,9 @@
 
 .icon:hover,
 .icon:focus {
-  color: #0b44cd;
+  color: var(--hover-color);
 }
 
 .activeIcon {
-  color: #3470ff;
+  color: var(--background-blue);
 }

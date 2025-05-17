@@ -3,7 +3,7 @@
   bottom: 20px;
   right: 20px;
   padding: 10px 15px;
-  background-color: #3470ff;
+  background-color: var(--background-blue);
   color: white;
   border: none;
   border-radius: 5px;
@@ -13,7 +13,7 @@
 }
 
 .scrollToTopButton:hover {
-  background-color: #0b44cd;
+  background-color: var(--hover-color);
 }
 
 .scrollToTopButton:active {

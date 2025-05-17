@@ -14,7 +14,7 @@
 .title {
   font-size: 18px;
   font-weight: bold;
-  color: #101828;
+  color: var(--black);
 }
 
 .resetBtn {
@@ -22,16 +22,16 @@
   padding: 12px;
   width: 160px;
   height: 44px;
-  background: #3470ff;
+  background: var(--background-blue);
   font-size: 16px;
-  color: #fff;
+  color: var(--white);
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .resetBtn:hover {
-  background-color: #0b44cd;
+  background-color: var(--hover-color);
 }
 
 .empty {

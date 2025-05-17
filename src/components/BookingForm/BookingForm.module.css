@@ -7,18 +7,35 @@
 .field {
   border-radius: 12px;
   padding: 14px 20px;
-  width: 576px;
+  width: 100%;
   height: 48px;
-  background: #f7f7f7;
+  background: var(--field-background);
   outline: none;
   border: none;
+}
+
+.datepickerWrapper {
+  width: 100%;
+}
+
+.dateInput {
+  border-radius: 12px;
+  padding: 14px 20px;
+  width: 100%;
+  height: 48px;
+  background: var(--field-background);
+  outline: none;
+  border: none;
+  font-size: 16px;
+  color: var(--black);
+  cursor: pointer;
 }
 
 .field::placeholder {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
-  color: #8d929a;
+  color: var(--placeholder-color);
 }
 
 .commentField {
@@ -32,16 +49,16 @@
   padding: 12px 51px;
   width: 156px;
   height: 44px;
-  background: #3470ff;
+  background: var(--background-blue);
   font-size: 16px;
-  color: #fff;
+  color: var(--white);
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .submitbtn:hover {
-  background-color: #0b44cd;
+  background-color: var(--hover-color);
 }
 
 .field[placeholder="Booking date"] {

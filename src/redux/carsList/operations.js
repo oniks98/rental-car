@@ -1,4 +1,3 @@
-// operations.js
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { carsApi } from "../../api/carsApi";
 
