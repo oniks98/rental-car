@@ -30,18 +30,7 @@ const CatalogPage = () => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const { totalPages: tp } = await dispatch(
-          getCarsList({ ...filters, page })
-        ).unwrap();
-
-        if (page >= tp) {
-          toast.info(
-            "We're sorry, but you've reached the end of search results.",
-            {
-              toastId: "end-of-search-results",
-            }
-          );
-        }
+        await dispatch(getCarsList({ ...filters, page })).unwrap();
       } catch {
         toast.error("Failed to load cars. Please try again later.", {
           toastId: "fetch-cars-error",
@@ -62,8 +51,16 @@ const CatalogPage = () => {
   }, [cars, page]);
 
   const handleLoadMore = useCallback(() => {
+    const nextPage = page + 1;
+
+    if (nextPage >= totalPages) {
+      toast.info("We're sorry, but you've reached the end of search results.", {
+        toastId: "end-of-search-results",
+      });
+    }
+
     if (page < totalPages) {
-      dispatch(setCurrentPage(page + 1));
+      dispatch(setCurrentPage(nextPage));
     }
   }, [dispatch, page, totalPages]);
 
