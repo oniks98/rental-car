@@ -6,13 +6,20 @@ import {
   ListboxOption,
 } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { selectBrands } from "../../redux/carsBrands/selectors";
 import { getBrandsList } from "../../redux/carsBrands/operations";
+import { setCurrency } from "../../redux/currency/slice";
+import { fetchCurrencyRates } from "../../redux/currency/operations";
+import { selectCurrency, selectRate } from "../../redux/currency/selectors";
 import css from "./FilterPanel.module.css";
+import clsx from "clsx";
 
 const FilterPanel = ({ onSearch }) => {
   const dispatch = useDispatch();
   const brands = useSelector(selectBrands);
+  const currency = useSelector(selectCurrency);
+  const rate = useSelector(selectRate);
 
   const [selectedBrand, setSelectedBrand] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState(null);
@@ -21,6 +28,7 @@ const FilterPanel = ({ onSearch }) => {
 
   useEffect(() => {
     dispatch(getBrandsList());
+    dispatch(fetchCurrencyRates());
   }, [dispatch]);
 
   const handleSearchClick = () => {
@@ -50,9 +58,37 @@ const FilterPanel = ({ onSearch }) => {
   const uniqueBrands = Array.from(new Set(brands));
   const uniquePrices = [30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
 
+  const formatPrice = (usd) => {
+    if (currency === "USD") {
+      return `$ ${usd}`;
+    } else {
+      const uahValue = Math.round(usd * rate);
+      return `₴ ${uahValue.toLocaleString()}`;
+    }
+  };
+
   return (
     <div className={css.panel}>
       <div className={css.selects}>
+        <div className={css.currencySwitcher}>
+          <button
+            className={clsx(css.currencyBtn, {
+              [css.active]: currency === "USD",
+            })}
+            onClick={() => dispatch(setCurrency("USD"))}
+          >
+            $ USD
+          </button>
+          <button
+            className={clsx(css.currencyBtn, {
+              [css.active]: currency === "UAH",
+            })}
+            onClick={() => dispatch(setCurrency("UAH"))}
+          >
+            ₴ UAH
+          </button>
+        </div>
+
         <div className={css.selectGroup}>
           <label className={css.label}>Car brand</label>
           <Listbox value={selectedBrand} onChange={setSelectedBrand}>
@@ -87,7 +123,9 @@ const FilterPanel = ({ onSearch }) => {
             {({ open }) => (
               <div className={`${css.dropdownWrapper} ${open ? css.open : ""}`}>
                 <ListboxButton className={css.selectBtn}>
-                  {selectedPrice ? `$${selectedPrice}` : "Choose a price"}
+                  {selectedPrice
+                    ? formatPrice(selectedPrice)
+                    : "Choose a price"}
                 </ListboxButton>
                 <ListboxOptions className={css.options}>
                   {uniquePrices.map((price) => (
@@ -98,7 +136,7 @@ const FilterPanel = ({ onSearch }) => {
                             selected ? css.dropdownItemActive : ""
                           }`}
                         >
-                          ${price}
+                          {formatPrice(price)}
                         </div>
                       )}
                     </ListboxOption>

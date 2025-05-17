@@ -1,9 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import { lazy } from "react";
-import ScrollToTopButton from "../../src/components/ScrollToTopButton/ScrollToTopButton.jsx";
+
+import { ToastContainer } from "react-toastify";
 
 import Layout from "../components/Layout/Layout";
-import { ToastContainer } from "react-toastify";
+import ScrollToTopButton from "../../src/components/ScrollToTopButton/ScrollToTopButton.jsx";
 import "react-toastify/dist/ReactToastify.css";
 
 const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));

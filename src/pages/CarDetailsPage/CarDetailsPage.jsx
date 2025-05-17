@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+
 import { FaTachometerAlt, FaMoneyBillWave } from "react-icons/fa";
 import { IoLocationOutline, IoCarOutline } from "react-icons/io5";
 import { BsCheckCircle, BsFuelPump } from "react-icons/bs";
@@ -8,19 +9,19 @@ import { HiCalendar } from "react-icons/hi";
 import { GoGear } from "react-icons/go";
 
 import useMedia from "../../hooks/useMedia";
-import css from "./CarDetailsPage.module.css";
-import clsx from "clsx";
-
 import { getCarDetails } from "../../redux/carDetails/operations.js";
 import {
   selectCarDetails,
   selectCarDetailsLoading,
   selectCarDetailsError,
 } from "../../redux/carDetails/selectors.js";
-
+import { selectCurrency, selectRate } from "../../redux/currency/selectors";
+import { getFormattedPrice } from "../../utils/formatPrice";
 import Loader from "../../components/Loader/Loader";
 import BookingForm from "../../components/BookingForm/BookingForm";
 import NotFoundPage from "../NotFoundPage/NotFoundPage.jsx";
+import css from "./CarDetailsPage.module.css";
+import clsx from "clsx";
 
 const CarDetailsPage = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,9 @@ const CarDetailsPage = () => {
   const isLoading = useSelector(selectCarDetailsLoading);
   const error = useSelector(selectCarDetailsError);
 
+  const currency = useSelector(selectCurrency);
+  const rate = useSelector(selectRate);
+
   const { isMobile, isDesktop } = useMedia();
 
   useEffect(() => {
@@ -38,6 +42,8 @@ const CarDetailsPage = () => {
 
   if (isLoading) return <Loader />;
   if (error || !car?.id) return <NotFoundPage />;
+
+  const rentalPrice = getFormattedPrice(car.rentalPrice, currency, rate);
 
   return (
     <div className={css.container}>
@@ -77,7 +83,7 @@ const CarDetailsPage = () => {
           </div>
           <div className={css.price}>
             <FaMoneyBillWave className={css.icon} />
-            <span>${car.rentalPrice}</span>
+            <span>{rentalPrice}</span>
           </div>
           <p className={css.infoBox}>{car.description}</p>
         </div>

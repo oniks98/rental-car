@@ -1,14 +1,16 @@
-// CarCard.jsx
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { motion } from "framer-motion";
-import { useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
+
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 import { toggleFavorite } from "../../redux/favorites/slice.js";
 import { isCarFavorite } from "../../redux/favorites/selectors.js";
+import { selectCurrency, selectRate } from "../../redux/currency/selectors";
+
+import { getFormattedPrice } from "../../utils/formatPrice";
 
 import css from "./CarCard.module.css";
 
@@ -17,6 +19,8 @@ const MotionDiv = motion.div;
 const CarCard = ({ car }) => {
   const dispatch = useDispatch();
   const isFavorite = useSelector(isCarFavorite(car.id));
+  const currency = useSelector(selectCurrency);
+  const rate = useSelector(selectRate);
   const src = car.img || "";
 
   const controls = useAnimation();
@@ -36,6 +40,8 @@ const CarCard = ({ car }) => {
   const handleFavoriteClick = () => {
     dispatch(toggleFavorite(car.id));
   };
+
+  const rentalPrice = getFormattedPrice(car.rentalPrice, currency, rate);
 
   return (
     <MotionDiv
@@ -71,7 +77,7 @@ const CarCard = ({ car }) => {
             {car.brand} <span className={css.model}>{car.model}</span>,{" "}
             {car.year}
           </h3>
-          <div className={css.price}>${car.rentalPrice}</div>
+          <div className={css.price}>{rentalPrice}</div>
         </div>
         <p className={css.meta}>{car.address}</p>
         <p className={css.rental}>{car.rentalCompany}</p>

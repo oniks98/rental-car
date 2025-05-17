@@ -1,5 +1,7 @@
-import CarCard from "../CarCard/CarCard";
 import { motion } from "framer-motion";
+
+import CarCard from "../CarCard/CarCard";
+
 import css from "./CarsList.module.css";
 
 const MotionDiv = motion.div;

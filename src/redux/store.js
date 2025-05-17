@@ -15,6 +15,7 @@ import { CarsListReducer } from "./carsList/slice";
 import { FavoritesReducer } from "./favorites/slice";
 import { CarDetailsReducer } from "./carDetails/slice";
 import { brandsReducer } from "./carsBrands/slice";
+import { currencyReducer } from "./currency/slice";
 
 const persistConfig = {
   key: "root",
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   favorites: FavoritesReducer,
   carDetails: CarDetailsReducer,
   brands: brandsReducer,
+  currency: currencyReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
