@@ -43,14 +43,15 @@ const CatalogPage = () => {
           );
         }
       } catch {
-        // Ошибку рендерит selectError
+        toast.error("Failed to load cars. Please try again later.", {
+          toastId: "fetch-cars-error",
+        });
       }
     };
 
     fetchCars();
   }, [dispatch, page, filters]);
 
-  // Прокрутка вниз при подгрузке новых машин
   useEffect(() => {
     if (page > 1) {
       window.scrollTo({
