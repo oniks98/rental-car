@@ -113,8 +113,8 @@
   max-height: 200px;
   overflow-y: auto;
   z-index: 100;
-  list-style: none;
-  outline: none;
+  outline: auto;
+  outline-color: #f7f7f7;
 }
 
 .dropdownItem {

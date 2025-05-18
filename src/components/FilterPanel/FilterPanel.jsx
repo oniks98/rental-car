@@ -34,7 +34,7 @@ const FilterPanel = ({ onSearch }) => {
   const handleSearchClick = () => {
     const filters = {};
     if (selectedBrand) filters.brand = selectedBrand;
-    if (selectedPrice) filters.rentalPrice = String(selectedPrice);
+    if (selectedPrice) filters.rentalPrice = selectedPrice;
     if (mileageFrom) filters.minMileage = mileageFrom;
     if (mileageTo) filters.maxMileage = mileageTo;
 

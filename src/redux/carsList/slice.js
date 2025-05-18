@@ -1,4 +1,4 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { getCarsList } from "./operations";
 
 const initialState = {
@@ -20,6 +20,10 @@ const carsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(getCarsList.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
       .addCase(getCarsList.fulfilled, (state, { payload }) => {
         const isFirstPage = state.currentPage === 1;
         const alreadyLoadedLastPage = state.cars.length >= state.totalCars;
@@ -34,15 +38,9 @@ const carsSlice = createSlice({
 
         state.totalCars = payload.totalCars;
         state.totalPages = payload.totalPages;
-      })
-      .addMatcher(isAnyOf(getCarsList.pending), (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addMatcher(isAnyOf(getCarsList.fulfilled), (state) => {
         state.isLoading = false;
       })
-      .addMatcher(isAnyOf(getCarsList.rejected), (state, { payload }) => {
+      .addCase(getCarsList.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
       });

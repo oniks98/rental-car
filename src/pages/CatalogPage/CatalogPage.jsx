@@ -69,9 +69,6 @@ const CatalogPage = () => {
     (newFilters) => {
       const normalized = {
         ...newFilters,
-        rentalPrice: newFilters.rentalPrice
-          ? Number(newFilters.rentalPrice)
-          : undefined,
       };
       setFilters(normalized);
       dispatch(setCurrentPage(1));

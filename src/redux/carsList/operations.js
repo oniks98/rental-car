@@ -10,7 +10,7 @@ export const getCarsList = createAsyncThunk(
     try {
       const params = {};
       if (brand) params.brand = brand;
-      if (rentalPrice) params.rentalPrice = rentalPrice; // <- renamed to match API docs
+      if (rentalPrice) params.rentalPrice = rentalPrice;
       if (minMileage) params.minMileage = minMileage;
       if (maxMileage) params.maxMileage = maxMileage;
       params.page = page;
