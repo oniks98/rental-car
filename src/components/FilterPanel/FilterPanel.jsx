@@ -97,9 +97,9 @@ const FilterPanel = ({ onSearch }) => {
                 <ListboxButton className={css.selectBtn}>
                   {selectedBrand || "Choose a brand"}
                 </ListboxButton>
-                <ListboxOptions className={css.options}>
+                <ListboxOptions as="ul" className={css.options}>
                   {uniqueBrands.map((brand) => (
-                    <ListboxOption key={brand} value={brand}>
+                    <ListboxOption as="li" key={brand} value={brand}>
                       {({ selected }) => (
                         <div
                           className={`${css.dropdownItem} ${
