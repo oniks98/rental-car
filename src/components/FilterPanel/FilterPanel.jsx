@@ -23,8 +23,8 @@ const FilterPanel = ({ onSearch }) => {
 
   const [selectedBrand, setSelectedBrand] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState(null);
-  const [mileageFrom, setMileageFrom] = useState("");
-  const [mileageTo, setMileageTo] = useState("");
+  const [mileageFrom, setMileageFrom] = useState(null);
+  const [mileageTo, setMileageTo] = useState(null);
 
   useEffect(() => {
     dispatch(getBrandsList());
@@ -44,16 +44,16 @@ const FilterPanel = ({ onSearch }) => {
   const handleReset = () => {
     setSelectedBrand(null);
     setSelectedPrice(null);
-    setMileageFrom("");
-    setMileageTo("");
+    setMileageFrom(null);
+    setMileageTo(null);
     onSearch({});
   };
 
   const isDisabled =
     !selectedBrand &&
     !selectedPrice &&
-    !mileageFrom.trim() &&
-    !mileageTo.trim();
+    mileageFrom === null &&
+    mileageTo === null;
 
   const uniqueBrands = Array.from(new Set(brands));
   const uniquePrices = [30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
@@ -152,17 +152,27 @@ const FilterPanel = ({ onSearch }) => {
           <div className={css.inputGroup}>
             <input
               className={css.mileageInput}
-              type="number"
+              type="text"
+              inputMode="numeric"
               placeholder="From"
-              value={mileageFrom}
-              onChange={(e) => setMileageFrom(e.target.value)}
+              value={mileageFrom !== null ? mileageFrom.toLocaleString() : ""}
+              onChange={(e) => {
+                const raw = e.target.value.replace(/\D/g, "");
+                const number = raw ? Number(raw) : null;
+                setMileageFrom(number);
+              }}
             />
             <input
               className={css.mileageInput}
-              type="number"
+              type="text"
+              inputMode="numeric"
               placeholder="To"
-              value={mileageTo}
-              onChange={(e) => setMileageTo(e.target.value)}
+              value={mileageTo !== null ? mileageTo.toLocaleString() : ""}
+              onChange={(e) => {
+                const raw = e.target.value.replace(/\D/g, "");
+                const number = raw ? Number(raw) : null;
+                setMileageTo(number);
+              }}
             />
           </div>
         </div>
