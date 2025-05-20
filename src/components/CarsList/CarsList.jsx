@@ -4,8 +4,6 @@ import CarCard from "../CarCard/CarCard";
 
 import css from "./CarsList.module.css";
 
-const MotionDiv = motion.div;
-
 const containerVariants = {
   hidden: { opacity: 0 },
   show: {
@@ -16,17 +14,21 @@ const containerVariants = {
   },
 };
 
+const MotionUl = motion.ul;
+
 const CarsList = ({ cars }) => (
-  <MotionDiv
+  <MotionUl
     className={css.list}
     variants={containerVariants}
     initial="hidden"
     animate="show"
   >
     {cars.map((car) => (
-      <CarCard key={car.id} car={car} />
+      <li key={car.id} className={css.listItem}>
+        <CarCard car={car} />
+      </li>
     ))}
-  </MotionDiv>
+  </MotionUl>
 );
 
 export default CarsList;
