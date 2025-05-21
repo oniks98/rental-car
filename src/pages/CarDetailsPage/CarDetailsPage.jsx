@@ -46,8 +46,8 @@ const CarDetailsPage = () => {
   const rentalPrice = getFormattedPrice(car.rentalPrice, currency, rate);
 
   return (
-    <div className={css.container}>
-      <div className={css.imageformik}>
+    <main className={css.container}>
+      <section className={css.imageSection}>
         <img
           className={css.image}
           src={car.img}
@@ -55,96 +55,97 @@ const CarDetailsPage = () => {
         />
 
         {isDesktop && (
-          <div className={clsx(css.section, css.desktopBookingForm)}>
+          <section className={clsx(css.bookingSection, css.desktopBooking)}>
             <h2>Book your car now</h2>
-            <p className={css.textformik}>
+            <p className={css.text}>
               Stay connected! We are always ready to help you.
             </p>
             <BookingForm />
-          </div>
+          </section>
         )}
-      </div>
+      </section>
 
-      <div className={css.detailsBlock}>
-        <div className={css.data}>
-          <div className={css.name}>
-            <h1 className={css.titleDetails}>
+      <section className={css.detailsSection}>
+        <div className={css.headerBox}>
+          <header className={css.carHeader}>
+            <h1 className={css.title}>
               {car.brand} {car.model}, {car.year}
             </h1>
-            <p className={css.id}>id: {car.id}</p>
-            <div className={css.infoBox}>
-              <IoLocationOutline className={css.icon} />
-              <span>{car.address}</span>
-            </div>
-            <div className={css.infoBox}>
-              <FaTachometerAlt className={css.icon} />
-              <span>Mileage: {car.mileage.toLocaleString()} km</span>
-            </div>
-          </div>
+            <p className={css.carId}>id: {car.id}</p>
+            <ul className={css.infoList}>
+              <li className={css.infoItem}>
+                <IoLocationOutline className={css.icon} />{" "}
+                <span>{car.address}</span>
+              </li>
+              <li className={css.infoItem}>
+                <FaTachometerAlt className={css.icon} />{" "}
+                <span>Mileage: {car.mileage.toLocaleString()} km</span>
+              </li>
+            </ul>
+          </header>
           <div className={css.price}>
-            <FaMoneyBillWave className={css.icon} />
-            <span>{rentalPrice}</span>
+            <FaMoneyBillWave className={css.icon} /> <span>{rentalPrice}</span>
           </div>
-          <p className={css.infoBox}>{car.description}</p>
+          <p className={css.description}>{car.description}</p>
         </div>
 
-        <div className={css.detailsBox}>
-          <div className={css.details}>
+        <section className={css.detailsBox}>
+          <div className={css.detailBlock}>
             <h3>Rental Conditions</h3>
             <ul>
               {car.rentalConditions.map((cond, idx) => (
-                <li key={idx}>
+                <li key={idx} className={css.infoItem}>
                   <BsCheckCircle className={css.icon} /> {cond}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className={css.details}>
+          <div className={css.detailBlock}>
             <h3>Car Specifications:</h3>
-            <div className={css.infoTech}>
-              <div className={css.infoBox}>
-                <HiCalendar className={css.icon} />
+            <ul className={css.infoList}>
+              <li className={css.infoItem}>
+                <HiCalendar className={css.icon} />{" "}
                 <span>Year: {car.year}</span>
-              </div>
-              <div className={css.infoBox}>
-                <IoCarOutline className={css.icon} />
+              </li>
+              <li className={css.infoItem}>
+                <IoCarOutline className={css.icon} />{" "}
                 <span>Type: {car.type}</span>
-              </div>
-              <div className={css.infoBox}>
-                <BsFuelPump className={css.icon} />
+              </li>
+              <li className={css.infoItem}>
+                <BsFuelPump className={css.icon} />{" "}
                 <span>Fuel Consumption: {car.fuelConsumption}/day</span>
-              </div>
-              <div className={css.infoBox}>
-                <GoGear className={css.icon} />
+              </li>
+              <li className={css.infoItem}>
+                <GoGear className={css.icon} />{" "}
                 <span>Engine Size: {car.engineSize}</span>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
 
-          <div className={css.details}>
+          <div className={css.detailBlock}>
             <h3>Accessories and functionalities:</h3>
             <ul>
               {[...car.accessories, ...car.functionalities].map((item, idx) => (
-                <li key={idx}>
+                <li key={idx} className={css.infoItem}>
                   <BsCheckCircle className={css.icon} /> {item}
                 </li>
               ))}
             </ul>
           </div>
-        </div>
-      </div>
+        </section>
+      </section>
 
       {isMobile && (
-        <div className={clsx(css.section, css.mobileBookingForm)}>
+        <section className={clsx(css.bookingSection, css.mobileBooking)}>
           <h2>Book your car now</h2>
-          <p className={css.textformik}>
+          <p className={css.text}>
             Stay connected! We are always ready to help you.
           </p>
           <BookingForm />
-        </div>
+        </section>
       )}
-    </div>
+    </main>
   );
 };
 

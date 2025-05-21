@@ -23,6 +23,7 @@ const BookingForm = () => {
         toast.success("Your message has been delivered successfully.");
         resetForm();
       }}
+      validateOnBlur={false}
     >
       {({ values, setFieldValue }) => (
         <Form className={css.form}>

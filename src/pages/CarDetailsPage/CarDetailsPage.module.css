@@ -13,18 +13,24 @@
   object-fit: cover;
 }
 
-.imageformik {
+.imageSection {
   display: flex;
   gap: 40px;
   flex-direction: column;
   width: 53.3%;
 }
 
-.section {
+.bookingSection {
   padding: 32px;
   border: 1px solid #dadde1;
   border-radius: 10px;
   background: var(--white);
+}
+
+.desktopBooking {
+}
+
+.mobileBooking {
 }
 
 h2 {
@@ -35,7 +41,7 @@ h2 {
   margin-bottom: 8px;
 }
 
-.textformik {
+.text {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
@@ -43,38 +49,44 @@ h2 {
   margin-bottom: 24px;
 }
 
-.detailsBlock {
+.detailsSection {
   display: flex;
   flex-direction: column;
   width: 40.5%;
 }
 
-.data {
+.headerBox {
   margin-bottom: 68px;
 }
 
-.name {
+.carHeader {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-bottom: 16px;
 }
 
-.titleDetails {
+.title {
   font-weight: 600;
   font-size: 24px;
   line-height: 1.33333;
   color: var(--black);
 }
 
-.id {
+.carId {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
   color: #8d929a;
 }
 
-.infoBox {
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.infoItem {
   display: flex;
   align-items: center;
   font-weight: 500;
@@ -98,16 +110,19 @@ h2 {
   margin-bottom: 32px;
 }
 
+.description {
+  font-size: 16px;
+  color: var(--black);
+  line-height: 1.5;
+}
+
 .detailsBox {
   display: flex;
   flex-direction: column;
   gap: 80px;
 }
 
-.infoTech {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.detailBlock {
 }
 
 h3 {
@@ -122,11 +137,6 @@ li:not(:last-child) {
   margin-bottom: 16px;
 }
 
-li {
-  display: flex;
-  align-items: center;
-}
-
 @media (max-width: 1199.9px) {
   .container {
     flex-direction: column;
@@ -139,11 +149,11 @@ li {
     gap: 20px;
   }
 
-  .imageformik {
+  .imageSection {
     width: 100%;
   }
 
-  .detailsBlock {
+  .detailsSection {
     width: 100%;
   }
 }
