@@ -1,16 +1,12 @@
-.loaderBackdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+.loaderContainer {
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 9999;
+  margin-top: 20px;
 }
 
-.spinnerWrapper {
-  width: 100px;
-  height: 100px;
+.loader {
+  height: 80px;
+  width: 80px;
+  border-radius: 9px;
+  background-color: var(--background-blue);
 }

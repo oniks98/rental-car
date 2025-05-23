@@ -42,15 +42,6 @@ const CatalogPage = () => {
     fetchCars();
   }, [dispatch, page, filters]);
 
-  useEffect(() => {
-    if (page > 1) {
-      window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: "smooth",
-      });
-    }
-  }, [cars, page]);
-
   const handleLoadMore = useCallback(() => {
     const nextPage = page + 1;
 
@@ -76,6 +67,19 @@ const CatalogPage = () => {
     [dispatch]
   );
 
+  useEffect(() => {
+    if (page > 1) {
+      const timeout = setTimeout(() => {
+        window.scrollTo({
+          top: document.documentElement.scrollHeight,
+          behavior: "smooth",
+        });
+      }, 100);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [cars, page]);
+
   return (
     <div className={css.wrapper}>
       <FilterPanel onSearch={handleSearch} brands={brands} />
@@ -92,7 +96,7 @@ const CatalogPage = () => {
           <CarsList cars={cars} />
 
           {page < totalPages && (
-            <div className={css.loadMoreWrapper}>
+            <>
               {isLoading ? (
                 <Loader />
               ) : (
@@ -100,7 +104,7 @@ const CatalogPage = () => {
                   Load more
                 </button>
               )}
-            </div>
+            </>
           )}
         </div>
       )}
